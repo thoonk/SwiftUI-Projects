@@ -15,6 +15,7 @@ struct Landmark: Hashable, Codable, Identifiable {
     var park: String
     var state: String
     var description: String
+    var isFavorite: Bool
     
     // imageName을 통해 image에서 연산된 Image를 로드할 수 있도록 함
     private var imageName: String

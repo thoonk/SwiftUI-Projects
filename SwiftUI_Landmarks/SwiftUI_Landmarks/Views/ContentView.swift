@@ -17,6 +17,8 @@ struct ContentView: View {
 /// 뷰의 preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        // 모든 하위 뷰에서 ModelData 객체를 사용할 수 있도록 설정
         ContentView()
+            .environmentObject(ModelData())
     }
 }

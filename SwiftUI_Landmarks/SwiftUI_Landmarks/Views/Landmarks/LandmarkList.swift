@@ -8,6 +8,17 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    // modelData의 프로퍼티의 값을 자동으로 가져옴
+    @EnvironmentObject var modelData: ModelData
+    // 뷰와 하위 뷰의 특정 정보가 있으므로 private으로 설정
+    @State private var showFavoritesOnly = false
+    
+    var filteredLandmarks: [Landmark] {
+        modelData.landmarks.filter { landmark in
+            (!showFavoritesOnly || landmark.isFavorite)
+        }
+    }
+    
     var body: some View {
         //        List {
         //            // static Row
@@ -23,12 +34,18 @@ struct LandmarkList: View {
         
         // Navigation 생성 및 title 설정
         NavigationView {
-            List(landmarks, id: \.id) { landmark in
-                // 다른 뷰로 전환
-                NavigationLink(
-                    destination: LandmarkDetail(landmark: landmark)
-                ) {
-                    LandmarkRow(landmark: landmark)
+            List {
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites Only")
+                }
+                
+                ForEach(filteredLandmarks) { landmark in
+                    // 다른 뷰로 전환
+                    NavigationLink(
+                        destination: LandmarkDetail(landmark: landmark)
+                    ) {
+                        LandmarkRow(landmark: landmark)
+                    }
                 }
             }
             .navigationTitle("Landmarks")
@@ -45,11 +62,12 @@ struct LandmarkList_Previews: PreviewProvider {
             LandmarkList()
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
+                .environmentObject(ModelData())
         }
         
-//        LandmarkList()
-//            .previewDevice(
-//                PreviewDevice(rawValue: "iPhone SE (2nd generation)")
-//            )
+        //        LandmarkList()
+        //            .previewDevice(
+        //                PreviewDevice(rawValue: "iPhone SE (2nd generation)")
+        //            )
     }
 }
