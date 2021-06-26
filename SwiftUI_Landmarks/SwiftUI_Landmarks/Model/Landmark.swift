@@ -16,6 +16,14 @@ struct Landmark: Hashable, Codable, Identifiable {
     var state: String
     var description: String
     var isFavorite: Bool
+    var isFeatured: Bool
+    
+    var category: Category
+    enum Category: String, CaseIterable, Codable {
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
+    }
     
     // imageName을 통해 image에서 연산된 Image를 로드할 수 있도록 함
     private var imageName: String
