@@ -11,6 +11,8 @@ import Combine
 /// 데이터가 변경될 때 뷰를 갱신하기 위해 SwiftUI는 ObservableObject를 subscribe함
 final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    @Published var profile = Profile.default
+    
     var hikes: [Hike] = load("hikeData.json")
     
     var categories: [String: [Landmark]] {
