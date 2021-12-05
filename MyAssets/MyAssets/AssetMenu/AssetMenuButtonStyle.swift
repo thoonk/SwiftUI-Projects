@@ -19,7 +19,7 @@ struct AssetMenuButtonStyle: ButtonStyle {
             Text(menu.title)
                 .font(.system(size: 12, weight: .bold))
         }
-//        .padding()
+        .padding()
         .foregroundColor(.blue)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))

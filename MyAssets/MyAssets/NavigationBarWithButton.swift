@@ -24,7 +24,7 @@ struct NavigationBarWithButton: ViewModifier {
                             .font(.system(size: 12))
                     })
                     .accentColor(.black)
-                    .padding(EdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3))
+                    .padding(EdgeInsets(top: 5, leading: 3, bottom: 3, trailing: 5))
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.black)
