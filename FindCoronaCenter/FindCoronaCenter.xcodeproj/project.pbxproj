@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6A9737DC29C998650036A9CF /* FindCoronaCenterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9737DB29C998650036A9CF /* FindCoronaCenterApp.swift */; };
-		6A9737DE29C998650036A9CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9737DD29C998650036A9CF /* ContentView.swift */; };
 		6A9737E029C998660036A9CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A9737DF29C998660036A9CF /* Assets.xcassets */; };
 		6A9737E329C998660036A9CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A9737E229C998660036A9CF /* Preview Assets.xcassets */; };
 		6A9737ED29C998660036A9CF /* FindCoronaCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9737EC29C998660036A9CF /* FindCoronaCenterTests.swift */; };
@@ -22,6 +21,8 @@
 		6A97381429C9A4280036A9CF /* SelectRegionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97381329C9A4280036A9CF /* SelectRegionItem.swift */; };
 		6A97381729C9A7B20036A9CF /* CenterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97381629C9A7B20036A9CF /* CenterRow.swift */; };
 		6A97381929C9ACB40036A9CF /* CenterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97381829C9ACB40036A9CF /* CenterList.swift */; };
+		6A97381F29CC09CC0036A9CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97381E29CC09CC0036A9CF /* MapView.swift */; };
+		6A97382629CC4B8D0036A9CF /* CenterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97382529CC4B8D0036A9CF /* CenterDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,6 @@
 /* Begin PBXFileReference section */
 		6A9737D829C998650036A9CF /* FindCoronaCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindCoronaCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9737DB29C998650036A9CF /* FindCoronaCenterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCoronaCenterApp.swift; sourceTree = "<group>"; };
-		6A9737DD29C998650036A9CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A9737DF29C998660036A9CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A9737E229C998660036A9CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6A9737E829C998660036A9CF /* FindCoronaCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindCoronaCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +60,9 @@
 		6A97381329C9A4280036A9CF /* SelectRegionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionItem.swift; sourceTree = "<group>"; };
 		6A97381629C9A7B20036A9CF /* CenterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterRow.swift; sourceTree = "<group>"; };
 		6A97381829C9ACB40036A9CF /* CenterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterList.swift; sourceTree = "<group>"; };
+		6A97381E29CC09CC0036A9CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		6A97382529CC4B8D0036A9CF /* CenterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterDetailView.swift; sourceTree = "<group>"; };
+		6A97382729CC4DB20036A9CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +113,8 @@
 		6A9737DA29C998650036A9CF /* FindCoronaCenter */ = {
 			isa = PBXGroup;
 			children = (
+				6A97382729CC4DB20036A9CF /* Info.plist */,
 				6A9737DB29C998650036A9CF /* FindCoronaCenterApp.swift */,
-				6A9737DD29C998650036A9CF /* ContentView.swift */,
 				6A97380729C9987C0036A9CF /* Entity */,
 				6A97380A29C99A500036A9CF /* Network */,
 				6A9737DF29C998660036A9CF /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 			children = (
 				6A97381A29C9AE200036A9CF /* SelectRegion */,
 				6A97381B29C9AE2E0036A9CF /* CenterList */,
+				6A97382429CC4B6F0036A9CF /* CenterDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -189,6 +193,15 @@
 				6A97381829C9ACB40036A9CF /* CenterList.swift */,
 			);
 			path = CenterList;
+			sourceTree = "<group>";
+		};
+		6A97382429CC4B6F0036A9CF /* CenterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6A97381E29CC09CC0036A9CF /* MapView.swift */,
+				6A97382529CC4B8D0036A9CF /* CenterDetailView.swift */,
+			);
+			path = CenterDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +336,8 @@
 			files = (
 				6A97381929C9ACB40036A9CF /* CenterList.swift in Sources */,
 				6A97381729C9A7B20036A9CF /* CenterRow.swift in Sources */,
-				6A9737DE29C998650036A9CF /* ContentView.swift in Sources */,
+				6A97381F29CC09CC0036A9CF /* MapView.swift in Sources */,
+				6A97382629CC4B8D0036A9CF /* CenterDetailView.swift in Sources */,
 				6A97380929C99A490036A9CF /* CenterAPI.swift in Sources */,
 				6A97380629C998760036A9CF /* CenterAPIResponse.swift in Sources */,
 				6A9737DC29C998650036A9CF /* FindCoronaCenterApp.swift in Sources */,
@@ -492,11 +506,13 @@
 				DEVELOPMENT_TEAM = U9AFN5UKD7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FindCoronaCenter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,11 +537,13 @@
 				DEVELOPMENT_TEAM = U9AFN5UKD7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FindCoronaCenter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

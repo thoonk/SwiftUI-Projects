@@ -19,7 +19,7 @@ struct SelectRegionItem: View {
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(.purple)
-                Text("(\(count)")
+                Text("(\(count))")
                     .font(.callout)
                     .fontWeight(.light)
                     .foregroundColor(.gray)

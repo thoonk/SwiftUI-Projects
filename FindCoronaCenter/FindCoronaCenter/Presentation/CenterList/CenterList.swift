@@ -12,9 +12,11 @@ struct CenterList: View {
     
     var body: some View {
         List(centers, id: \.id) { center in
-            CenterRow(center: center)
+            NavigationLink(destination: CenterDetailView(center: center)) {
+                CenterRow(center: center)
+            }
+            .navigationTitle(center.sido.rawValue)
         }
-//        .navigationTitle(center.sido.rawValue)
     }
 }
 

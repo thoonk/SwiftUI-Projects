@@ -31,7 +31,7 @@ struct Center: Hashable, Decodable {
         case 서울특별시
         case 부산광역시
         case 대구광역시
-        case 인청광역시
+        case 인천광역시
         case 광주광역시
         case 대전광역시
         case 울산광역시
