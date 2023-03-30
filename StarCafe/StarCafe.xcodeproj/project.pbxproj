@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A5915AD29D2D7C90009DB74 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5915AC29D2D7C90009DB74 /* SettingView.swift */; };
+		6A5915B029D565D00009DB74 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5915AF29D565D00009DB74 /* HomeViewModel.swift */; };
 		6A97383929CD69F60036A9CF /* StarCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97383829CD69F60036A9CF /* StarCafeApp.swift */; };
 		6A97383B29CD69F60036A9CF /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97383A29CD69F60036A9CF /* MainTabView.swift */; };
 		6A97383D29CD69F70036A9CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A97383C29CD69F70036A9CF /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		6A5915AC29D2D7C90009DB74 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		6A5915AF29D565D00009DB74 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6A97383529CD69F60036A9CF /* StarCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A97383829CD69F60036A9CF /* StarCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCafeApp.swift; sourceTree = "<group>"; };
 		6A97383A29CD69F60036A9CF /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				6A97385829D2B4400036A9CF /* HomeView.swift */,
 				6A97384C29D2A5680036A9CF /* MenuSuggestSectionView.swift */,
 				6A97385029D2A9EB0036A9CF /* EventSectionView.swift */,
+				6A5915AF29D565D00009DB74 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				6A97384D29D2A5680036A9CF /* MenuSuggestSectionView.swift in Sources */,
 				6A97385329D2AA600036A9CF /* Event.swift in Sources */,
 				6A5915AD29D2D7C90009DB74 /* SettingView.swift in Sources */,
+				6A5915B029D565D00009DB74 /* HomeViewModel.swift in Sources */,
 				6A97383929CD69F60036A9CF /* StarCafeApp.swift in Sources */,
 				6A97385C29D2B8090036A9CF /* User.swift in Sources */,
 				6A97385729D2AD500036A9CF /* HomeHeaderView.swift in Sources */,
