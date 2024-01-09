@@ -44,9 +44,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
+                            FlagImage(countries[number])
                         }
                     }
                 }
@@ -59,8 +57,9 @@ struct ContentView: View {
                 Spacer()
                 
                 Text("Score: \(score)")
-                    .foregroundStyle(.white)
-                    .font(.title.bold())
+//                    .foregroundStyle(.white)
+//                    .font(.title.bold())
+                    .titleStyle()
                     
                 Spacer()
             }
