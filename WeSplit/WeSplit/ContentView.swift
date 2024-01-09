@@ -60,7 +60,12 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    if tipPercentage == 0 {
+                        Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                            .foregroundStyle(.red)
+                    } else {
+                        Text(grandTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    }
                 }
             }
             .navigationTitle("WeSplit")
