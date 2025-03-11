@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class Order: Codable {
+final class Order: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case _type = "type"
         case _quantity = "quantity"
@@ -62,5 +62,36 @@ class Order: Codable {
         }
         
         return cost
+    }
+    
+    static func == (lhs: Order, rhs: Order) -> Bool {
+        return lhs.type == rhs.type &&
+        lhs.quantity == rhs.quantity &&
+        lhs.name == rhs.name &&
+        lhs.streetAddress == rhs.streetAddress &&
+        lhs.city == rhs.city &&
+        lhs.zip == rhs.zip
+    }
+}
+
+extension Order {
+    private static let orderKey = "Order"
+    
+    func saveToUserDefaults() {
+        if let encoded = try? JSONEncoder().encode(self) {
+            UserDefaults.standard.set(encoded, forKey: Order.orderKey)
+        } else {
+            print("Failed to encode order")
+        }
+    }
+    
+    static func loadFromUserDefaults() -> Order {
+        if let savedData = UserDefaults.standard.data(forKey: Order.orderKey),
+           let decoded = try? JSONDecoder().decode(Order.self, from: savedData) {
+            return decoded
+        } else {
+            print("Failed to decode order")
+            return Order()
+        }
     }
 }

@@ -28,6 +28,9 @@ struct AddressView: View {
         }
         .navigationTitle("Delivery details")
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: order) { _, newValue in
+            newValue.saveToUserDefaults()
+        }
     }
 }
 
