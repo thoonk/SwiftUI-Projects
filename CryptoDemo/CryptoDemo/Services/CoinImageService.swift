@@ -16,11 +16,11 @@ final class CoinImageService {
     private let fileManager = LocalFileManager.instance
     private let folderName = "coin_images"
     
-    init(coin: CoinModal) {
+    init(coin: CoinModel) {
         loadCoinImage(coin: coin)
     }
     
-    private func loadCoinImage(coin: CoinModal) {
+    private func loadCoinImage(coin: CoinModel) {
         if let savedImage = fileManager.loadImage(name: coin.id, folderName: folderName) {
             image = savedImage
             print("Retrieving image from cache")
@@ -30,7 +30,7 @@ final class CoinImageService {
         }
     }
     
-    private func downloadCoinImage(coin: CoinModal) {
+    private func downloadCoinImage(coin: CoinModel) {
         guard let url = URL(string: coin.image)
         else {
             return

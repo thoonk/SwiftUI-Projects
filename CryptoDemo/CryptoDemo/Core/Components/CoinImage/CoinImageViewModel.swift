@@ -15,11 +15,11 @@ final class CoinImageViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
-    private let coin: CoinModal
+    private let coin: CoinModel
     private let coinImageService: CoinImageService
     
     init(
-        coin: CoinModal
+        coin: CoinModel
     ) {
         self.coin = coin
         self.coinImageService = .init(coin: coin)

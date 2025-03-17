@@ -9,15 +9,15 @@ import Combine
 import Foundation
 
 protocol CoinDataServiceProtocol {
-    var allCoinsPublisher: AnyPublisher<[CoinModal], Never> { get }
-    func fetchCoins() -> AnyPublisher<[CoinModal], NetworkError>
+    var allCoinsPublisher: AnyPublisher<[CoinModel], Never> { get }
+    func fetchCoins() -> AnyPublisher<[CoinModel], NetworkError>
     func refresh()
 }
 
 final class CoinDataService {
     
-    private let allCoinsSubject = CurrentValueSubject<[CoinModal], Never>([])
-    var allCoinsPublisher: AnyPublisher<[CoinModal], Never> {
+    private let allCoinsSubject = CurrentValueSubject<[CoinModel], Never>([])
+    var allCoinsPublisher: AnyPublisher<[CoinModel], Never> {
         return allCoinsSubject.eraseToAnyPublisher()
     }
     
@@ -43,13 +43,13 @@ final class CoinDataService {
             .store(in: &cancellables)
     }
     
-    private func fetchCoins() -> AnyPublisher<[CoinModal], NetworkError> {
+    private func fetchCoins() -> AnyPublisher<[CoinModel], NetworkError> {
         guard let url = makeCoinsURL() else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         
         return NetworkManager.download(url: url)
-            .decode(type: [CoinModal].self, decoder: JSONDecoder())
+            .decode(type: [CoinModel].self, decoder: JSONDecoder())
             .mapError { error -> NetworkError in
                 if let networkError = error as? NetworkError {
                     return networkError

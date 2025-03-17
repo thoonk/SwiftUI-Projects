@@ -14,14 +14,18 @@ extension PreviewProvider {
     }
 }
 
-class DeveloperPreview {
+final class DeveloperPreview {
     
     static let instance = DeveloperPreview()
     private init() {}
     
     let homeViewMdoel = HomeViewModel()
     
-    let coin = CoinModal(
+    let state1 = StatisticModel(title: "Market Cap", value: "$12.58n", percentageChange: 25.34)
+    let state2 = StatisticModel(title: "Total Volume", value: "$1.23Tr")
+    let state3 = StatisticModel(title: "PortFolio Value", value: "$50.4k", percentageChange: -12.34)
+    
+    let coin = CoinModel(
         id: "bitcoin",
         symbol: "btc",
         name: "Bitcoin",
