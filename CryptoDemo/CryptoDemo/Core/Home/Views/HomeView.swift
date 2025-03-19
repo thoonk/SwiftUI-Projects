@@ -13,6 +13,9 @@ struct HomeView: View {
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false
     
+    @State private var selectCoin: CoinModel? = nil
+    @State private var showDetailView: Bool = false
+
     var body: some View {
         ZStack {
             Color.theme.background
@@ -30,16 +33,28 @@ struct HomeView: View {
                 
                 columnTitles
                 
-                if showPortfolio {
-                    portfolioCoinList
-                        .transition(.move(edge: .trailing))
-                } else {
+                if !showPortfolio {
                     allCoinList
                         .transition(.move(edge: .leading))
                 }
                 
+                if showPortfolio {
+                    portfolioCoinList
+                        .transition(.move(edge: .trailing))
+                }
+                
                 Spacer(minLength: 0)
             }
+        }
+        .background(
+            NavigationLink(
+                destination: DetailLoadingView(coin: $selectCoin),
+                isActive: $showDetailView,
+                label: { EmptyView() }
+            )
+        )
+        .onAppear {
+            showPortfolio = false
         }
     }
 }
@@ -49,7 +64,7 @@ struct HomeView: View {
         HomeView()
             .navigationBarHidden(true)
     }
-    .environmentObject(DeveloperPreview.instance.homeViewMdoel)
+    .environmentObject(DeveloperPreview.instance.homeViewModel)
 }
 
 extension HomeView {
@@ -88,12 +103,20 @@ extension HomeView {
             ForEach(viewModel.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                    .onTapGesture {
+                        segue(coin: coin)
+                    }
             }
         }
         .refreshable {
             viewModel.refresh()
         }
         .listStyle(PlainListStyle())
+    }
+    
+    private func segue(coin: CoinModel) {
+        selectCoin = coin
+        showDetailView.toggle()
     }
     
     private var portfolioCoinList: some View {

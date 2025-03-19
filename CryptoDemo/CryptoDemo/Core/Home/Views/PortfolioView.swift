@@ -184,6 +184,6 @@ private extension PortfolioView {
 struct PortfolioView_Previews: PreviewProvider {
     static var previews: some View {
         PortfolioView()
-            .environmentObject(dev.homeViewMdoel)
+            .environmentObject(dev.homeViewModel)
     }
 }
