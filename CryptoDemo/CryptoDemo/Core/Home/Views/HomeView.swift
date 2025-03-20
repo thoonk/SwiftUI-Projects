@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var viewModel: HomeViewModel
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false
-    
+    @State private var showSettingsView: Bool = false
     @State private var selectCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
 
@@ -39,11 +39,20 @@ struct HomeView: View {
                 }
                 
                 if showPortfolio {
-                    portfolioCoinList
-                        .transition(.move(edge: .trailing))
+                    ZStack(alignment: .top) {
+                        if viewModel.portfolioCoins.isEmpty && viewModel.searchText.isEmpty {
+                            portfolioEmptyText
+                        } else {
+                            portfolioCoinList
+                        }
+                    }
+                    .transition(.move(edge: .trailing))
                 }
                 
                 Spacer(minLength: 0)
+            }
+            .sheet(isPresented: $showSettingsView) {
+                SettingsView()
             }
         }
         .background(
@@ -67,14 +76,16 @@ struct HomeView: View {
     .environmentObject(DeveloperPreview.instance.homeViewModel)
 }
 
-extension HomeView {
-    private var homeHeader: some View {
+private extension HomeView {
+    var homeHeader: some View {
         HStack {
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .withoutAnimation()
                 .onTapGesture {
                     if showPortfolio {
                         showPortfolioView.toggle()
+                    } else {
+                        showSettingsView.toggle()
                     }
                 }
                 .background(
@@ -98,7 +109,7 @@ extension HomeView {
         .padding(.horizontal)
     }
     
-    private var allCoinList: some View {
+    var allCoinList: some View {
         List {
             ForEach(viewModel.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingColumn: false)
@@ -114,12 +125,12 @@ extension HomeView {
         .listStyle(PlainListStyle())
     }
     
-    private func segue(coin: CoinModel) {
+    func segue(coin: CoinModel) {
         selectCoin = coin
         showDetailView.toggle()
     }
     
-    private var portfolioCoinList: some View {
+    var portfolioCoinList: some View {
         List {
             ForEach(viewModel.portfolioCoins) { coin in
                 CoinRowView(coin: coin, showHoldingColumn: true)
@@ -129,7 +140,16 @@ extension HomeView {
         .listStyle(PlainListStyle())
     }
     
-    private var columnTitles: some View {
+    var portfolioEmptyText: some View {
+        Text("You haven't added any coins to your portfolio yet. Click the + button to get started!")
+            .font(.callout)
+            .fontWeight(.medium)
+            .foregroundStyle(Color.theme.accent)
+            .multilineTextAlignment(.center)
+            .padding(50)
+    }
+    
+    var columnTitles: some View {
         HStack {
             HStack(spacing: 4) {
                 Text("Coin")
